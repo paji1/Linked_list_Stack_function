@@ -31,4 +31,6 @@ void	ft_ra(t_list **lst);
 void	ft_rb(t_list **lst);
 void	ft_rra(t_list **lst);
 void	ft_rrb(t_list **lst);
+void	ft_rrr(t_list **stack_a, t_list **stack_b);
+void	ft_rr(t_list **stack_a, t_list **stack_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 18:11:53 by tel-mouh          #+#    #+#             */
-/*   Updated: 2022/01/17 02:29:29 by tel-mouh         ###   ########.fr       */
+/*   Updated: 2022/01/17 02:33:03 by tel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int main(void)
 
 	// ft_lstadd_back(&stack_b, ft_lstnew(15));
 	// printf("%d",stack_a->next->content);
-	ft_rrb(&stack_a);
+	ft_rrb(&stack_b);
+	ft_rra(&stack_a);
 	push(&stack_b, ft_lstnew(12));
 	
 	// printf("%d",stack_b->prev->content);
