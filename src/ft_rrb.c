@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_rrb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 02:17:44 by tel-mouh          #+#    #+#             */
-/*   Updated: 2022/01/17 00:57:19 by tel-mouh         ###   ########.fr       */
+/*   Created: 2022/01/17 00:15:32 by tel-mouh          #+#    #+#             */
+/*   Updated: 2022/01/17 02:30:41 by tel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 
-void	push(t_list **lst, t_list *new)
+void ft_rrb(t_list **lst)
 {
-	static t_list	*tmp;
+	t_list *last;
 
-	if((*lst) == NULL)
-		tmp = NULL;
-	new->next = *lst;
-	*lst = new;
-	if(tmp)
-	{
-		if(tmp != (*lst)->next->prev)
-			tmp = (*lst)->next->prev;
-		(*lst)->next->prev = *(lst);
-	}
-	else
-		tmp = new;
-	(*lst)->prev = tmp;
+	if(!(*lst) || !((*lst)->next))
+		return ;
+	last = (*lst)->prev;
+	(*lst)->prev = (*lst)->prev->prev;
+	push(lst, ft_lstnew(last->content));
+	(*lst)->prev = last->prev;
+	(*lst)->prev->next = NULL;
+	free(last);
+	write(1,"rrb\n",4);
 }

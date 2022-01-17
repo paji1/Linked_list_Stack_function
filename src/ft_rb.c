@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_rb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 02:17:44 by tel-mouh          #+#    #+#             */
-/*   Updated: 2022/01/17 00:57:19 by tel-mouh         ###   ########.fr       */
+/*   Created: 2022/01/16 05:14:43 by tel-mouh          #+#    #+#             */
+/*   Updated: 2022/01/17 02:30:49 by tel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linked_list.h"
 
-void	push(t_list **lst, t_list *new)
+void ft_rb(t_list **lst)
 {
-	static t_list	*tmp;
+	t_list *temp;
 
-	if((*lst) == NULL)
-		tmp = NULL;
-	new->next = *lst;
-	*lst = new;
-	if(tmp)
-	{
-		if(tmp != (*lst)->next->prev)
-			tmp = (*lst)->next->prev;
-		(*lst)->next->prev = *(lst);
-	}
-	else
-		tmp = new;
-	(*lst)->prev = tmp;
+	if(!((*lst)->next))
+		return ;
+	temp = pop(lst);
+	ft_lstadd_back(lst, ft_lstnew(temp->content));
+	free(temp);
+	write(1,"rb\n",3);
 }

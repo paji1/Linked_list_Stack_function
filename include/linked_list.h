@@ -28,4 +28,7 @@ void	ft_pa(t_list **lsta, t_list **lstb);
 void	ft_pb(t_list **lsta, t_list **lstb);
 void	ft_free(t_list **lst);
 void	ft_ra(t_list **lst);
+void	ft_rb(t_list **lst);
+void	ft_rra(t_list **lst);
+void	ft_rrb(t_list **lst);
 #endif
