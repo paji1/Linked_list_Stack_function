@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/17 02:56:38 by tel-mouh          #+#    #+#             */
+/*   Updated: 2022/01/17 02:59:34 by tel-mouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LINKED_LIST_H
-#define LINKED_LIST_H
+# define LINKED_LIST_H
 
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list 
+typedef struct s_list
 {
-	int content;
-	struct s_list *next;
-	struct s_list *prev;
-} t_list;
+	int				content;
+	struct s_list	*next;
+	struct s_list	*prev;
+}	t_list;
 
 t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);

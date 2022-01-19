@@ -2,33 +2,40 @@ CC=cc
 CFLAGS=-Wall -Wextra -Werror -g
 
 RM = rm -f
+AR    := ar rcs
 
-SRC_DIR=src
-INCLUDE_DIR=include
+SRC_DIR = src
+INCLUDE_DIR = include
 
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJS = $(SRCS:.c=.o)
 INCLUDES = $(wildcard $(INCLUDE_DIR)/*)
-NAME = push_swap
+NAME = liblink.a
 MAIN = main.c
+EXEC = push_swap
+OBJ_DIR = $(addprefix obj/, $(notdir $(OBJS)))
 
-B ?= 12 1 2 2
+all: $(NAME) TEST
+	
+	
 
-all: $(NAME)
+obj/%.o: src/%.c $(INCLUDES)
+	 $(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c $< -o obj/$(notdir $@)
 
-%.o: %.c $(INCLUDES)
-	@ $(CC) $(CFLAGS) -I $(INCLUDE_DIR) -c $< -o obj/$(notdir $@)
 
-$(NAME): $(OBJS) $(INCLUDES)
-	@ $(CC) $(CFLAGS) $(MAIN) $(addprefix obj/, $(notdir $(OBJS))) -I $(INCLUDE_DIR) -o $(NAME)
-	@ ./$(NAME)
+$(NAME): $(OBJ_DIR) $(INCLUDES)
+	@ $(AR) library/$(NAME) $(OBJ_DIR)
+
+TEST :
+	@ $(CC) $(CFLAGS) $(MAIN)  -I $(INCLUDE_DIR) -o $(EXEC) library/$(NAME) 
+	@ ./$(EXEC)
 
 
 clean:
-	$(RM) $(addprefix obj/, $(notdir $(OBJS)))
+	$(RM) $(OBJ_DIR) push_swap
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) 
 
 re: fclean all
 
