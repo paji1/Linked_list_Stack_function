@@ -6,7 +6,7 @@
 /*   By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 00:15:32 by tel-mouh          #+#    #+#             */
-/*   Updated: 2022/01/17 02:30:39 by tel-mouh         ###   ########.fr       */
+/*   Updated: 2022/01/19 08:08:48 by tel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void ft_rra(t_list **lst)
 	(*lst)->prev = last->prev;
 	(*lst)->prev->next = NULL;
 	free(last);
-	write(1,"rra\n",4);
 }

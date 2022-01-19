@@ -6,7 +6,7 @@
 /*   By: tel-mouh <tel-mouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 00:51:42 by tel-mouh          #+#    #+#             */
-/*   Updated: 2022/01/16 02:14:32 by tel-mouh         ###   ########.fr       */
+/*   Updated: 2022/01/19 08:08:36 by tel-mouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,4 @@ void	ft_ss(t_list **lsta, t_list **lstb)
 {
 	ft_sa(lsta);
 	ft_sb(lstb);
-	write(1,"ss\n",3);
 }
